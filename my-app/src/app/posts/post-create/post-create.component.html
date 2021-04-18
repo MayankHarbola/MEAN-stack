@@ -1,0 +1,51 @@
+<!-- one way binding using #postInput is used for getting value and [value] is used for setting the value (it is called proprty binding)-->
+<!-- <textarea [value] = "newPost" cols="30" rows="10" #postInput></textarea> -->
+
+<!-- two way data binding using ngModel -->
+<!-- ngModel is feature which by default don't work we have to import it from FromsModule  -->
+<!-- <textarea cols="30" rows="10" [(ngModel)]="enteredValue"></textarea>
+
+<hr>
+<button (click) = "onAddPost(postInput)">submit</button> -->
+
+<!-- ----------------------Using two way data binding----------------------------------------- -->
+<!-- <mat-card>
+      <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="enter Title" [(ngModel)]="title">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <mat-label>content</mat-label>
+          <textarea matInput placeholder="enter Content" [(ngModel)]="content"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color = "accent" (click) = "onAddPost()">submit</button>
+
+      </mat-card> -->
+<!-- *********************************Submiting using Form******************************* -->
+<!-- using form we can use inbuit validation in angular  -->
+
+<!-- ngForm is inbuilt directive which gives you access to the form simillar to #title = "ngModel" it's syntax to use like this #postForm = "ngForm" -->
+<form (submit) = "onAddPost(postForm)" #postForm = "ngForm">
+  <mat-card>
+    <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <!-- writing name in input tag is required -->
+        <input matInput placeholder="enter Title" name = "title" ngModel required minlength = "3" #title = "ngModel">
+        <mat-error *ngIf = title.invalid>please enter post title</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>content</mat-label>
+        <textarea matInput row = 4 placeholder="enter Content" name = "content" ngModel  required #content = "ngModel"></textarea>
+        <mat-error *ngIf = content.invalid>please enter post title</mat-error>
+
+      </mat-form-field>
+
+    <!-- type = submit is requuired which on click automatically trigger the onAddPost function-->
+    <button mat-raised-button color = "accent" type="submit">submit</button>
+
+    </mat-card>
+
+</form>
