@@ -1,7 +1,9 @@
 <app-header></app-header>
 <main>
-<post-create (postCreated) = "onPostAdded($event)"></post-create>
-
+<!-- <post-create (postCreated) = "onPostAdded($event)"></post-create> -->
+<post-create></post-create>
 <!-- sending data from parent to child using property binding -->
-<app-post-list [posts] = "storedPost"></app-post-list>
+<!-- <app-post-list [posts] = "storedPost"></app-post-list> -->
+
+<app-post-list></app-post-list>
 </main>

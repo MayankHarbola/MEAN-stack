@@ -1,3 +1,4 @@
+import { PostsService } from './posts/posts.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatInputModule,MatCardModule,MatButtonModule,MatToolbarModule, MatExpansionModule} from '@angular/material';
@@ -24,7 +25,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     BrowserAnimationsModule,
     MatInputModule,MatCardModule,MatButtonModule,MatToolbarModule,MatExpansionModule
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent] // point from where it has to start
 })
 export class AppModule { }
